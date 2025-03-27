@@ -1,0 +1,54 @@
+<div class="container">
+    <h1 class="title">Catálogo de Productos</h1>
+
+    <div class="main-content">
+        <h4 class="section-title">Alta de Productos</h4>
+        <div class="form-container">
+            <p>
+                <label>ID:</label>
+                <input type="text" class="form-control" [(ngModel)]="producto.id" />
+            </p>
+            <p>
+                <label>Descripción:</label>
+                <input type="text" class="form-control" [(ngModel)]="producto.descripcion" />
+            </p>
+            <p>
+                <label>Precio:</label>
+                <input type="number" class="form-control" [(ngModel)]="producto.precio" />
+            </p>
+
+            <div class="button-group">
+                <button class="btn btn-primary" (click)="insertartproducto()">Insertar</button>
+                <button class="btn btn-warning" (click)="updateproducto()">Actualizar</button>
+                <button class="btn btn-danger" (click)="deleteproducto()">Borrar</button>
+                <button class="btn btn-success" (click)="limpiarproducto()">Deshacer</button>
+            </div>
+        </div>
+
+        <hr class="divider"/>
+
+        <h4 class="section-title">Listado de Productos</h4>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (producto of productos; track producto.id) {
+                    <tr>
+                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.descripcion }}</td>
+                        <td>${{ producto.precio }}</td>
+                        <td>
+                            <button class="btn btn-select" (click)="selectproducto(producto)">Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

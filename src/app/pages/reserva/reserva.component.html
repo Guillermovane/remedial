@@ -1,0 +1,54 @@
+<div class="container">
+    <h1 class="title">Catálogo de Reservas</h1>
+
+    <div class="main-content">
+        <h4 class="section-title">Alta de Reservas</h4>
+        <div class="form-container">
+            <p>
+                <label>Número de Reserva:</label>
+                <input type="text" class="form-control" [(ngModel)]="reserva.numero_de_reserva" />
+            </p>
+            <p>
+                <label>Nombre:</label>
+                <input type="text" class="form-control" [(ngModel)]="reserva.nombre" />
+            </p>
+            <p>
+                <label>Fecha:</label>
+                <input type="date" class="form-control" [(ngModel)]="reserva.fecha" />
+            </p>
+
+            <div class="button-group">
+                <button class="btn btn-primary" (click)="insertarReserva()">Insertar</button>
+                <button class="btn btn-warning" (click)="updateReserva()">Actualizar</button>
+                <button class="btn btn-danger" (click)="deleteReserva()">Borrar</button>
+                <button class="btn btn-success" (click)="limpiarFormulario()">Deshacer</button>
+            </div>
+        </div>
+
+        <hr class="divider"/>
+
+        <h4 class="section-title">Listado de Reservas</h4>
+        <table class="reservation-table">
+            <thead>
+                <tr>
+                    <th>Número de Reserva</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (reserva of reservas; track reserva.numero_de_reserva) {
+                    <tr>
+                        <td>{{ reserva.numero_de_reserva }}</td>
+                        <td>{{ reserva.nombre }}</td>
+                        <td>{{ reserva.fecha }}</td>
+                        <td>
+                            <button class="btn btn-select" (click)="selectReserva(reserva)">Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

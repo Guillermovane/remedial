@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #4446d4;">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: #fff; font-weight: bold;" routerLink="/about">Guillermo Vanegas</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <button
+          class="nav-link btn btn-outline-light mx-2 custom-btn"
+          routerLink="/productos"
+          routerLinkActive="active"
+        >
+          Productos
+        </button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 custom-btn"
+          routerLink="/libros"
+          routerLinkActive="active"
+        >
+          Libros
+        </button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 custom-btn"
+          routerLink="/reservas"
+          routerLinkActive="active"
+        >
+          Servicios
+        </button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 custom-btn"
+          routerLink="/about"
+          routerLinkActive="active"
+        >
+          Acerca de
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Estilo personalizado para los botones */
+  .custom-btn {
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+  }
+
+  .custom-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  /* Estilo para la barra de navegación */
+  .navbar {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+</style>

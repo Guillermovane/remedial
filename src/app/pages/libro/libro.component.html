@@ -1,0 +1,60 @@
+<div class="container">
+    <h1 class="title">Catálogo de Libros</h1>
+
+    <div class="main-content">
+        <h4 class="section-title">Alta de Libros</h4>
+        <div class="form-container">
+            <p>
+                <label>Título</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.titulo" />
+            </p>
+            <p>
+                <label>Autor</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.autor" />
+            </p>
+            <p>
+                <label>Editorial</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.editorial" />
+            </p>
+            <p>
+                <label>Año de Publicación</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.anyoPublicacion" />
+            </p>
+
+            <div class="button-group">
+                <button class="btn btn-primary" (click)="insertartLibro()">Insertar</button>
+                <button class="btn btn-warning" (click)="updateLibro()">Actualizar</button>
+                <button class="btn btn-danger" (click)="deleteLibro()">Borrar</button>
+                <button class="btn btn-success" (click)="limpiarFormulario()">Deshacer</button>
+            </div>
+        </div>
+
+        <hr class="divider"/>
+
+        <h4 class="section-title">Listado de Libros</h4>
+        <table class="book-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Editorial</th>
+                    <th>Año de Publicación</th>
+                    <th>Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (libro of libros; track libro.id) {
+                    <tr>
+                        <td>{{ libro.titulo }}</td>
+                        <td>{{ libro.autor }}</td>
+                        <td>{{ libro.editorial }}</td>
+                        <td>{{ libro.anyoPublicacion }}</td>
+                        <td>
+                            <button class="btn btn-select" (click)="selectLibro(libro)">Seleccionar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
