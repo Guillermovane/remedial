@@ -36,31 +36,31 @@ export class Reservaservice {
 
   // Método para modificar una reserva
   async modificarReserva(reserva: Reserva) {
-    if (!reserva.numero_de_reserva) {
+    if (!reserva.id) {
       console.error('Error: La reserva no tiene un ID válido.');
       return;
     }
 
-    const documentRef = doc(this.db, 'reservas', reserva.nombre);
+    const documentRef = doc(this.db, 'reservas', reserva.id);
     await updateDoc(documentRef, {
       numero_de_reserva: reserva.numero_de_reserva,
       fecha: reserva.fecha,
       nombre: reserva.nombre
     });
 
-    console.log(`Reserva con ID: ${reserva.numero_de_reserva} actualizada correctamente.`);
+    console.log(`Reserva con ID: ${reserva.id} actualizada correctamente.`);
   }
 
   // Método para eliminar una reserva
   async eliminarReserva(reserva: Reserva) {
-    if (!reserva.numero_de_reserva) {
+    if (!reserva.id) {
       console.error('Error: La reserva no tiene un ID válido.');
       return;
     }
 
-    const documentRef = doc(this.db, 'reservas', reserva.nombre);
+    const documentRef = doc(this.db, 'reservas', reserva.id);
     await deleteDoc(documentRef);
 
-    console.log(`Reserva con ID: ${reserva.numero_de_reserva} eliminada correctamente.`);
+    console.log(`Reserva con ID: ${reserva.id} eliminada correctamente.`);
   }
 }

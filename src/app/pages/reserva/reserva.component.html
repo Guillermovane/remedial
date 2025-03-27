@@ -1,13 +1,14 @@
 <div class="container">
-    <h1 class="title">Catálogo de Reservas</h1>
+    <h1 class="title">Boletos</h1>
 
     <div class="main-content">
-        <h4 class="section-title">Alta de Reservas</h4>
+        <h4 class="section-title">Alta de Boletos</h4>
         <div class="form-container">
             <p>
-                <label>Número de Reserva:</label>
+                <label>Número de boleto:</label>
                 <input type="text" class="form-control" [(ngModel)]="reserva.numero_de_reserva" />
             </p>
+            
             <p>
                 <label>Nombre:</label>
                 <input type="text" class="form-control" [(ngModel)]="reserva.nombre" />
@@ -27,18 +28,18 @@
 
         <hr class="divider"/>
 
-        <h4 class="section-title">Listado de Reservas</h4>
+        <h4 class="section-title">Lista de boletos</h4>
         <table class="reservation-table">
             <thead>
                 <tr>
-                    <th>Número de Reserva</th>
+                    <th>Número de boleto</th>
                     <th>Nombre</th>
                     <th>Fecha</th>
                     <th>Seleccionar</th>
                 </tr>
             </thead>
             <tbody>
-                @for (reserva of reservas; track reserva.numero_de_reserva) {
+                @for (reserva of reservas; track reserva.id) {
                     <tr>
                         <td>{{ reserva.numero_de_reserva }}</td>
                         <td>{{ reserva.nombre }}</td>
